@@ -1,0 +1,60 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# PyTorch checkpoints
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.bin
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Logs / wandb
+*.log
+logs/
+wandb/
+mv_refiner_logs/
+
+# Output / checkpoints
+checkpoints/
+work_dirs/
+results/
+output/
+
+# Data
+DATAS/
+data/
+datasets/
+
+# UV / pip locks
+uv.lock
+
+# HDF5 / pickle artefacts
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.npy
+*.npz

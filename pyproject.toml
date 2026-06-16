@@ -1,0 +1,87 @@
+[tool.black]
+line-length = 240
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "remora"
+version = "0.1.0"
+description = "ReMoRa: codec-aware video-LLM with refined motion-vector residuals on a Mamba-based GOP compressor."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: BSD License",
+]
+dependencies = [
+    "accelerate==0.28.0",
+    "causal-conv1d==1.1.1",
+    "mamba-ssm",
+    "setuptools>=80.9.0",
+    "av",
+]
+
+[project.optional-dependencies]
+standalone = [
+    "shortuuid",
+    "httpx==0.24.0",
+    "einops",
+    "ftfy",
+]
+
+mviz = [
+    "numpy",
+    "opencv-python",
+    "matplotlib",
+    "Pillow",
+    "av",
+]
+
+train = [
+    "remora[standalone]",
+    "remora[mviz]",
+    "numpy==1.26.1",
+    "open_clip_torch",
+    "requests",
+    "sentencepiece",
+    "torch==2.2.2",
+    "torchvision==0.17.2",
+    "wandb",
+    "deepspeed==0.14.4",
+    "peft==0.4.0",
+    "accelerate==0.28.0",
+    "tokenizers~=0.15.2",
+    "transformers@git+https://github.com/huggingface/transformers.git@1c39974a4c4036fd641bc1191cc32799f85715a4",
+    "bitsandbytes==0.41.0",
+    "scikit-learn==1.2.2",
+    "sentencepiece~=0.1.99",
+    "einops==0.6.1",
+    "einops-exts==0.0.4",
+    "urllib3<=2.0.0",
+    "datasets==2.16.1",
+    "pydantic==1.10.8",
+    "timm",
+    "hf_transfer",
+    "h5py",
+    "opencv-python",
+    "av",
+    "decord",
+    "tyro",
+    "scipy",
+    "pyyaml",
+]
+
+[tool.setuptools.packages.find]
+include = ["llava*", "trl*", "mviz*"]
+exclude = [
+    "assets*",
+    "checkpoints*",
+    "docs",
+    "scripts*",
+]
+
+[tool.uv.sources]
+causal-conv1d = { url = "https://github.com/Dao-AILab/causal-conv1d/releases/download/v1.2.0.post1/causal_conv1d-1.2.0.post1+cu122torch2.2cxx11abiFALSE-cp311-cp311-linux_x86_64.whl" }
+mamba-ssm = { url = "https://github.com/state-spaces/mamba/releases/download/v2.2.2/mamba_ssm-2.2.2+cu122torch2.2cxx11abiFALSE-cp311-cp311-linux_x86_64.whl" }

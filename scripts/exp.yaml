@@ -1,0 +1,13 @@
+# ReMoRa stage-2 instruction-tuning data config.
+#
+# ReMoRa is data-agnostic — list one entry per dataset JSON and point these
+# at whatever video instruction-tuning data you want to train on. We used
+# LLaVA-Video-178K (https://huggingface.co/datasets/lmms-lab/LLaVA-Video-178K),
+# but any dataset in the same JSON format works.
+#
+# `sampling_strategy` accepts e.g. "all", "first:N%", "random:N%".
+datasets:
+  - json_path: /path/to/your/dataset_1.json
+    sampling_strategy: "all"
+  - json_path: /path/to/your/dataset_2.json
+    sampling_strategy: "all"
